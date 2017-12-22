@@ -1,7 +1,7 @@
 # Maintainer:  taca <taca@kadisius.eu>
 
 pkgbase=nosh
-pkgname=(
+pkgname={
     'nosh-common'
     'nosh-guide'
     'nosh-zsh-completion'
@@ -38,28 +38,18 @@ pkgname=(
     'nosh-run-debian-server-base'
     'nosh-run-debian-desktop-base'
     'nosh-run-openssh-server'
-    )               
+    }               
 pkgver=1.36
 pkgrel=1
 pkgdesc="A suite of system-level utilities for initializing and running a BSD or Linux system, for managing daemons, for managing terminals, and for managing logging."
 arch=('all')
 url="https://jdebp.eu/Softwares/nosh/index.html"
 license=('custom:MIT Expat' 'custom:FreeBSD' 'custom:ISC' 'custom:Simplified BSD')
-groups=()
-depends=()
 makedepends=('pax' 'docbook-xml' 'docbook-xsl' 'xmlto' 'redo-jdebp')
-checkdepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
-install=""
-changelog="archnosh.changelog"
+changelog="alpinenosh.changelog"
 
 # packages with maintenance scripts
-_pkginstalls=( 
+_pkginstalls={ 
         "nosh-bundles"
         "nosh-run-klog"
         "nosh-run-user-vt"
@@ -79,7 +69,7 @@ _pkginstalls=(
         "nosh-run-debian-server-base"
         "nosh-run-debian-desktop-base"
         "nosh-run-openssh-server"
-        )
+        }
         
 # no point in distributing empty files, create them now, they are filled in later
 for i in ${_pkginstalls[@]}
@@ -87,37 +77,35 @@ do
         touch $i.install
 done
     
-source=("https://jdebp.eu/Repository/freebsd/nosh-$pkgver.tar.gz"
-        "staging.patch"
-        "maintenance-scripts.patch"
-        "maintenance.sh"
-        "scriptletbuilder.sh"
-        "services-dbus.patch"
-        "services-at-spi-dbus-bus.patch"
-        "services-gconfd.patch"
-        
-        "nosh-bundles.install"
-        "nosh-run-klog.install"
-        "nosh-run-user-vt.install"
-        "nosh-run-local-syslog.install"
-        "nosh-run-via-systemd.install"
-        "nosh-run-busybox-mdev.install"
-        "nosh-run-openssh-server.install"
-        "nosh-run-via-systemd.install"
-        "nosh-run-freedesktop-kits.install"
-        "nosh-run-suckless-mdev.install"
-        "nosh-run-freedesktop-system-bus.install"
-        "nosh-run-system-manager.install"
-        "nosh-run-virtualbox-guest.install"
-        "nosh-run-kernel-vt.install"
-        "nosh-run-udev.install"
-        "nosh-run-systemd-udev.install"
-        "nosh-run-debian-server-base.install"
-        "nosh-run-debian-desktop-base.install"
-        "nosh-run-openssh-server.install"
-        )
+source="https://jdebp.eu/Repository/freebsd/nosh-$pkgver.tar.gz
+        staging.patch
+        maintenance-scripts.patch
+        maintenance.sh
+        scriptletbuilder.sh
+        services-dbus.patch
+        services-at-spi-dbus-bus.patch
+        services-gconfd.patch
+        nosh-bundles.install
+        nosh-run-klog.install
+        nosh-run-user-vt.install
+        nosh-run-local-syslog.install
+        nosh-run-via-systemd.install
+        nosh-run-busybox-mdev.install
+        nosh-run-openssh-server.install
+        nosh-run-via-systemd.install
+        nosh-run-freedesktop-kits.install
+        nosh-run-suckless-mdev.install
+        nosh-run-freedesktop-system-bus.install
+        nosh-run-system-manager.install
+        nosh-run-virtualbox-guest.install
+        nosh-run-kernel-vt.install
+        nosh-run-udev.install
+        nosh-run-systemd-udev.install
+        nosh-run-debian-server-base.install
+        nosh-run-debian-desktop-base.install
+        nosh-run-openssh-server.install"
 noextract=()
-sha256sums=(
+sha256sums={
             '43661c987ec6b843c7da1a496326bb0e213fab02e73f39417522f02d982807c5' # nosh-1.36.tar.gz
             'aef5795fe6aa178627d1272757986e78e03bba5689eef49baa62edd2a55ae25d' # staging.patch
             'e5e90eea4ed0685eccbb6f5435c55100b4ffa53062068d202b0cb96c521c221a' # maintenance-scripts.patch
@@ -146,8 +134,7 @@ sha256sums=(
             'SKIP'
             'SKIP'
             'SKIP'
-            )
-validpgpkeys=()
+            }
 
 prepare() {
     
